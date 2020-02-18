@@ -1,8 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import {SlideshowModule} from 'ng-simple-slideshow';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC6S5zVTFwlPFboUBfpbKyLsiSFq_amkFo",
+  authDomain: "depressiondetect-d121b.firebaseapp.com",
+  databaseURL: "https://depressiondetect-d121b.firebaseio.com",
+  projectId: "depressiondetect-d121b",
+  storageBucket: "depressiondetect-d121b.appspot.com",
+  messagingSenderId: "65748125645",
+  appId: "1:65748125645:web:5603dabf61bec7e5472684",
+  measurementId: "G-LP7SS85NQZ"
+};
 
 @NgModule({
   declarations: [
@@ -10,9 +26,17 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    SlideshowModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  public arr=["assets/img/src.jpg"];
+
+ }
