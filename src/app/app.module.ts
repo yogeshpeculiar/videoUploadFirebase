@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+import{AngularFireStorageModule} from 'angularfire2/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import {SlideshowModule} from 'ng-simple-slideshow';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6S5zVTFwlPFboUBfpbKyLsiSFq_amkFo",
@@ -29,12 +28,14 @@ const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AngularFireAuthModule,
-    SlideshowModule
+    BrowserAnimationsModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AngularFirestore],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
   public arr=["assets/img/src.jpg"];
